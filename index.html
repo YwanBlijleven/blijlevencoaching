@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blijleven Coaching</title>
+  <meta name="description" content="Breath · Movement · Endurance coaching in and around Amsterdam." />
+  <link rel="icon" type="image/png" href="assets/images/brand-logo-green.png" />
+  <link rel="apple-touch-icon" href="assets/images/brand-logo-green.png" />
+  <meta name="theme-color" content="#27443a" />
+  <style>
+
+:root{
+  --bg:#f5f3ec;
+  --bg-alt:#ece8db;
+  --green:#27443a;
+  --olive:#a4a05c;
+  --olive-dark:#8c8850;
+  --sand:#e7e0cf;
+  --text:#1f2f29;
+  --white:#ffffff;
+  --shadow:0 12px 34px rgba(20,30,25,.08);
+  --radius:22px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  color:var(--text);
+  background:var(--bg);
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+p, li, input, textarea, button, label, legend{
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.container{width:min(1180px, calc(100% - 2rem)); margin:0 auto}
+.narrow{width:min(820px, calc(100% - 2rem))}
+.section{padding:90px 0}
+.light{background:var(--bg)}
+.dark{background:var(--green); color:var(--white)}
+.alt{background:var(--bg-alt)}
+.section-kicker{
+  margin:0 0 8px;
+  color:var(--olive-dark);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  font-weight:700;
+}
+.dark .section-kicker, .philosophy-section .section-kicker{color:#d2d7b2}
+h1,h2,h3,h4{margin:0 0 16px; line-height:1.12}
+h1{font-size: clamp(2.4rem, 5vw, 4.8rem)}
+h2{font-size: clamp(2rem, 4vw, 3.3rem)}
+h3{font-size:1.45rem}
+p{font-size:1.05rem; line-height:1.75; margin:0 0 16px}
+
+.site-header{
+  position:sticky; top:0; z-index:20;
+  background:rgba(164,160,92,.96);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.nav-wrap{
+  width:min(1260px, calc(100% - 2rem));
+  margin:0 auto;
+  min-height:92px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{
+  display:flex; align-items:center; gap:16px; color:var(--white); min-width:0;
+}
+.brand img{width:68px; height:auto}
+.brand span{font-size:1.8rem; white-space:nowrap}
+.main-nav{display:flex; gap:22px; color:var(--white); align-items:center}
+.main-nav a{font-size:1rem; opacity:.96}
+.main-nav a:hover{opacity:.76}
+.nav-actions{display:flex; align-items:center; gap:14px}
+.lang-toggle{
+  border:1px solid rgba(255,255,255,.24);
+  color:var(--white);
+  background:transparent;
+  padding:11px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.cta-button,.ghost-button{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:52px;
+  padding:0 22px;
+  border-radius:999px;
+  transition:.2s ease;
+  font-weight:700;
+}
+.cta-button{
+  background:var(--olive);
+  color:var(--white);
+  border:1px solid transparent;
+}
+.cta-button:hover{transform:translateY(-1px); background:var(--olive-dark)}
+.cta-button.small{min-height:48px; background:#ddd8e6; color:#5f4b2a}
+.cta-button.full{width:100%; border:none; cursor:pointer}
+.ghost-button{
+  background:transparent;
+  color:var(--white);
+  border:1px solid rgba(255,255,255,.8);
+}
+.ghost-button:hover{background:rgba(255,255,255,.1)}
+.ghost-button.dark{color:var(--white); border-color:rgba(255,255,255,.35)}
+
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex; align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(16,22,20,.62) 0%, rgba(18,26,22,.42) 40%, rgba(18,26,22,.20) 100%);
+}
+.hero-content{position:relative; z-index:1; color:var(--white); padding:120px 0 80px}
+.eyebrow{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  color:#f1f4e2;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  font-weight:700;
+}
+.hero-text{max-width:760px; font-size:1.14rem; color:rgba(255,255,255,.92)}
+.hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+
+.cards.three{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:44px;
+}
+.card,.service-card{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(39,68,58,.08);
+  box-shadow:var(--shadow);
+  border-radius:var(--radius);
+}
+.card{padding:30px}
+.card p{margin:0}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+  align-items:start;
+}
+.service-card{padding:28px}
+.service-card ul{margin:0; padding-left:18px}
+.service-card li{margin:0 0 10px; line-height:1.55}
+.endurance-card{overflow:hidden; padding:0}
+.service-image img{width:100%; height:290px; object-fit:cover}
+.service-copy{padding:28px}
+
+.about-section{
+  background:
+    linear-gradient(rgba(245,243,236,.95), rgba(245,243,236,.95)),
+    url("assets/images/section-texture.png") center/520px repeat;
+}
+.about-grid{
+  display:grid; grid-template-columns:.9fr 1.1fr; gap:42px; align-items:start;
+}
+.about-image img{
+  width:100%; height:100%; object-fit:cover;
+  border-radius:28px; box-shadow:var(--shadow);
+}
+.about-copy p{margin-bottom:15px}
+
+.philosophy-section{
+  position:relative;
+  color:var(--white);
+  background:
+    linear-gradient(rgba(39,68,58,.95), rgba(39,68,58,.95)),
+    url("assets/images/section-texture.png") center/540px repeat;
+}
+.faq-list{margin-top:36px; display:grid; gap:14px}
+details{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  padding:18px 20px;
+}
+summary{
+  cursor:pointer;
+  list-style:none;
+  font-size:1.15rem;
+  font-weight:700;
+}
+summary::-webkit-details-marker{display:none}
+.faq-content{padding-top:14px}
+.faq-content p{color:rgba(255,255,255,.88)}
+
+.intake-section{background:var(--bg-alt)}
+.intake-grid{
+  display:grid;
+  grid-template-columns:.92fr 1.08fr;
+  gap:28px;
+  align-items:start;
+}
+.intake-form{
+  background:var(--white);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:28px;
+  display:grid; gap:16px;
+}
+.intake-copy{display:grid; gap:20px}
+.intake-form label, .intake-form legend{
+  font-size:.95rem; font-weight:700; color:var(--green);
+}
+.intake-form input, .intake-form textarea{
+  margin-top:8px;
+  width:100%;
+  border:1px solid #d7d1be;
+  border-radius:14px;
+  padding:13px 14px;
+  font-size:1rem;
+}
+.intake-form textarea{resize:vertical}
+.intake-form fieldset{
+  border:1px solid #ddd6c4;
+  border-radius:18px;
+  padding:14px 16px 8px;
+}
+.form-note{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.65;
+  color:#56635e;
+}
+.intake-form .form-note{margin-top:-4px}
+.form-status{
+  display:none;
+  margin:4px 0 0;
+  padding:12px 14px;
+  border-radius:14px;
+  font-size:.94rem;
+  line-height:1.55;
+}
+.form-status.is-visible{display:block}
+.form-status.success{
+  background:rgba(164,160,92,.16);
+  color:var(--green);
+}
+.form-status.error{
+  background:rgba(120,42,42,.10);
+  color:#7a2a2a;
+}
+.privacy-card{
+  padding:20px 22px;
+  border:1px solid rgba(39,68,58,.12);
+  border-radius:22px;
+  background:rgba(255,255,255,.62);
+}
+.privacy-card h3{
+  margin-bottom:10px;
+  color:var(--green);
+}
+.privacy-card p:last-child{margin-bottom:0}
+.privacy-card a,
+.form-note a{
+  color:var(--green);
+  font-weight:700;
+  text-decoration:underline;
+}
+.check{
+  display:flex; gap:10px; align-items:flex-start;
+  margin:10px 0; font-weight:500 !important;
+}
+.check input{width:18px; height:18px; margin-top:2px}
+.honeypot-field{
+  position:absolute !important;
+  left:-9999px !important;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.site-footer{
+  position:relative;
+  overflow:hidden;
+  background:var(--olive);
+  color:var(--white);
+  padding:56px 0;
+}
+.footer-pattern{
+  position:absolute; inset:0;
+  background:url("assets/images/section-texture.png") center/460px repeat;
+  opacity:.10; pointer-events:none;
+}
+.footer-grid{
+  position:relative;
+  display:grid; grid-template-columns:1.1fr .8fr .8fr 1fr; gap:26px;
+}
+.footer-links{list-style:none; padding:0; margin:0}
+.footer-links li{margin:0 0 12px}
+.newsletter{display:grid; gap:10px}
+.newsletter input{
+  border:none; border-radius:14px; padding:13px 14px;
+}
+.intake-form button[disabled],
+.newsletter button[disabled]{
+  opacity:.7;
+  cursor:wait;
+}
+.site-footer .ghost-button{width:max-content}
+
+.lang-nl{display:none}
+body.lang-nl .lang-en{display:none !important}
+body.lang-nl .lang-nl{display:block}
+body.lang-en .lang-en{display:block}
+body.lang-en .lang-nl{display:none !important}
+
+@media (max-width: 1080px){
+  .main-nav{display:none}
+  .about-grid, .intake-grid, .service-grid{grid-template-columns:1fr}
+  .cards.three{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 760px){
+  .nav-wrap{min-height:82px}
+  .brand span{font-size:1.3rem}
+  .brand img{width:54px}
+  .nav-actions{gap:8px}
+  .lang-toggle{padding:9px 12px}
+  .cta-button.small{display:none}
+  .hero{min-height:78vh}
+  .section{padding:72px 0}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+
+/* language toggle fixes */
+.lang-en, .lang-nl { display: inline; }
+body.lang-en .lang-nl { display: none !important; }
+body.lang-nl .lang-en { display: none !important; }
+body.lang-nl .lang-nl { display: inline !important; }
+.main-nav a .lang-en, .main-nav a .lang-nl,
+.cta-button .lang-en, .cta-button .lang-nl,
+.ghost-button .lang-en, .ghost-button .lang-nl,
+.lang-toggle .lang-en, .lang-toggle .lang-nl {
+  display: inherit;
+}
+.section-kicker.lang-en, .section-kicker.lang-nl {
+  display: inline-block;
+}
+h1.lang-en, h1.lang-nl, h2.lang-en, h2.lang-nl,
+.hero-text.lang-en, .hero-text.lang-nl,
+p.lang-en, p.lang-nl, ul.lang-en, ul.lang-nl {
+  display: block;
+}
+body.lang-en .lang-nl.section-kicker,
+body.lang-en h1.lang-nl, body.lang-en h2.lang-nl, body.lang-en p.lang-nl, body.lang-en ul.lang-nl {
+  display: none !important;
+}
+body.lang-nl .lang-en.section-kicker,
+body.lang-nl h1.lang-en, body.lang-nl h2.lang-en, body.lang-nl p.lang-en, body.lang-nl ul.lang-en {
+  display: none !important;
+}
+body.lang-nl .lang-nl.section-kicker {
+  display: inline-block !important;
+}
+body.lang-nl h1.lang-nl, body.lang-nl h2.lang-nl,
+body.lang-nl .hero-text.lang-nl, body.lang-nl p.lang-nl, body.lang-nl ul.lang-nl {
+  display: block !important;
+}
+
+</style>
+</head>
+<body class="lang-en">
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Blijleven Coaching">
+        <img src="assets/images/brand-logo-green.png" alt="Blijleven Coaching logo" decoding="async" />
+        <span>Blijleven Coaching</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#services">
+          <span class="lang-en">Services</span>
+          <span class="lang-nl">Diensten</span>
+        </a>
+        <a href="#course">
+          <span class="lang-en">Course</span>
+          <span class="lang-nl">Cursus</span>
+        </a>
+        <a href="#about">
+          <span class="lang-en">About</span>
+          <span class="lang-nl">Over</span>
+        </a>
+        <a href="#contact">
+          <span class="lang-en">Contact</span>
+          <span class="lang-nl">Contact</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-toggle" type="button" aria-label="Switch language">
+          <span class="lang-en">EN / NL</span>
+          <span class="lang-nl">NL / EN</span>
+        </button>
+        <a class="cta-button small" href="#contact">
+          <span class="lang-en">Book now</span>
+          <span class="lang-nl">Boek nu</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-bg" src="assets/images/hero-background.png" alt="Mountain landscape" fetchpriority="high" decoding="async" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <p class="eyebrow">Breath · Movement · Endurance</p>
+
+        <h1 class="lang-en">Train your body. Master your breath. Challenge your limits.</h1>
+        <h1 class="lang-nl">Train je fysiek. Beheers je ademhaling. Verleg je grenzen.</h1>
+
+        <p class="hero-text lang-en">
+          For people who want to improve their health, performance and lifestyle
+          through breath, movement, endurance and mindset.
+        </p>
+        <p class="hero-text lang-nl">
+          Voor mensen die hun gezondheid, prestaties en leefstijl willen verbeteren,
+          door middel van ademhaling, beweging, uithoudingsvermogen en mindset.
+        </p>
+
+        <div class="hero-actions">
+          <a class="cta-button" href="#contact">
+            <span class="lang-en">Plan a free intake</span>
+            <span class="lang-nl">Plan een gratis intake</span>
+          </a>
+          <a class="ghost-button" href="#method">
+            <span class="lang-en">Discover the method</span>
+            <span class="lang-nl">Ontdek de methode</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="section light">
+      <div class="container">
+        <div class="section-intro">
+          <p class="section-kicker lang-en">The Blijleven Method</p>
+          <p class="section-kicker lang-nl">De Blijleven Methode</p>
+
+          <h2 class="lang-en">Breath, movement and endurance as one foundation.</h2>
+          <h2 class="lang-nl">Adem, beweging en uithoudingsvermogen als één basis.</h2>
+
+          <p class="lang-en">
+            At Blijleven Coaching, growth starts by reconnecting with three
+            fundamental elements of human potential: breath, movement and endurance.
+            These pillars support each other and together create a strong foundation
+            for health, performance and personal development.
+          </p>
+          <p class="lang-nl">
+            Bij Blijleven Coaching begint groei met het opnieuw verbinden van drie
+            fundamentele elementen van menselijk potentieel: ademhaling, beweging en
+            uithoudingsvermogen. Deze pijlers versterken elkaar en vormen samen een
+            sterke basis voor gezondheid, prestaties en persoonlijke ontwikkeling.
+          </p>
+        </div>
+
+        <div class="cards three">
+          <article class="card">
+            <h3>
+              <span class="lang-en">Breath</span>
+              <span class="lang-nl">Adem</span>
+            </h3>
+            <p class="lang-en">
+              Learn how to use your breath to improve health, recovery and
+              performance. Breathing is the foundation of endurance, calmness
+              and resilience.
+            </p>
+            <p class="lang-nl">
+              Leer hoe je ademhaling kunt gebruiken om gezondheid, herstel en
+              prestaties te verbeteren. Ademhaling is de basis van
+              uithoudingsvermogen, rust en veerkracht.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>
+              <span class="lang-en">Movement</span>
+              <span class="lang-nl">Beweging</span>
+            </h3>
+            <p class="lang-en">
+              Develop strength, mobility and functional movement patterns that
+              support an active and capable body.
+            </p>
+            <p class="lang-nl">
+              Ontwikkel kracht, mobiliteit en functionele bewegingspatronen die
+              een actief en belastbaar lichaam ondersteunen.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>
+              <span class="lang-en">Endurance</span>
+              <span class="lang-nl">Uithoudingsvermogen</span>
+            </h3>
+            <p class="lang-en">
+              Build resilience and physical capacity through structured endurance
+              training in running, trail running and triathlon.
+            </p>
+            <p class="lang-nl">
+              Bouw veerkracht en fysieke capaciteit op met gestructureerde
+              duurtraining in hardlopen, trailrunning en triatlon.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="who" class="section dark">
+      <div class="container narrow">
+        <p class="section-kicker lang-en">Who this is for</p>
+        <p class="section-kicker lang-nl">Voor wie dit is</p>
+
+        <h2 class="lang-en">For people who feel there is more in them.</h2>
+        <h2 class="lang-nl">Voor mensen die voelen dat er meer in hen zit.</h2>
+
+        <p class="lang-en">
+          This coaching is for people who feel that their body is capable of more
+          than what daily life currently demands of it.
+        </p>
+        <p class="lang-nl">
+          Deze coaching is voor mensen die het gevoel hebben dat hun lichaam tot
+          meer in staat is dan wat het dagelijkse leven er momenteel van vraagt.
+        </p>
+
+        <p class="lang-en">
+          It is for people who want to reconnect with their breathing, improve
+          their health and develop a stronger and more resilient body.
+        </p>
+        <p class="lang-nl">
+          Voor mensen die opnieuw verbinding willen maken met hun ademhaling,
+          hun gezondheid willen verbeteren en een sterker en veerkrachtiger
+          lichaam willen ontwikkelen.
+        </p>
+
+        <p class="lang-en">
+          Some people come because they experience breathing issues such as
+          asthma, hyperventilation, Long COVID or chronic stress.
+        </p>
+        <p class="lang-nl">
+          Sommige mensen komen omdat ze ademhalingsklachten ervaren, zoals
+          astma, hyperventilatie, Long COVID of langdurige stress.
+        </p>
+
+        <p class="lang-en">
+          Others come because they want to train for a challenge: their first
+          10K, a marathon, a triathlon or simply to improve endurance and
+          physical capacity.
+        </p>
+        <p class="lang-nl">
+          Anderen komen omdat ze willen trainen voor een uitdaging: hun eerste
+          10 kilometer, een marathon, een triatlon of simpelweg om hun
+          uithoudingsvermogen en fysieke capaciteit te verbeteren.
+        </p>
+
+        <p class="lang-en">
+          You do not need to be an athlete. You only need the willingness to
+          learn, to train and to discover your potential.
+        </p>
+        <p class="lang-nl">
+          Je hoeft geen topsporter te zijn. Alleen de bereidheid om te leren,
+          te trainen en je potentieel te ontdekken.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="section light alt">
+      <div class="container">
+        <div class="section-intro">
+          <p class="section-kicker lang-en">Coaching Paths</p>
+          <p class="section-kicker lang-nl">Coaching Paden</p>
+
+          <h2 class="lang-en">Choose the entry point that fits you best.</h2>
+          <h2 class="lang-nl">Kies het ingangspunt dat het beste bij je past.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>
+              <span class="lang-en">Breath Coaching</span>
+              <span class="lang-nl">Ademcoaching</span>
+            </h3>
+
+            <p class="lang-en">
+              Breathing is one of the most fundamental processes in the human
+              body, yet many people are unaware of how strongly it influences
+              their health and performance.
+            </p>
+            <p class="lang-nl">
+              Ademhaling is een van de meest fundamentele processen in het
+              menselijk lichaam, maar veel mensen zijn zich er nauwelijks van
+              bewust hoeveel invloed het heeft op hun gezondheid en prestaties.
+            </p>
+
+            <p class="lang-en">
+              Modern lifestyles often lead to dysfunctional breathing patterns
+              caused by stress, poor posture and a sedentary way of living.
+            </p>
+            <p class="lang-nl">
+              De moderne leefstijl zorgt vaak voor inefficiënte
+              ademhalingspatronen door stress, een slechte houding en een
+              zittend bestaan.
+            </p>
+
+            <p class="lang-en">
+              This can help people who experience:
+            </p>
+            <p class="lang-nl">
+              Dit kan helpen bij mensen die last hebben van:
+            </p>
+
+            <ul class="lang-en">
+              <li>asthma</li>
+              <li>hyperventilation</li>
+              <li>Long COVID related breathing difficulties</li>
+              <li>stress-related breathing problems</li>
+              <li>poor recovery</li>
+              <li>limited breathing capacity during sport</li>
+            </ul>
+
+            <ul class="lang-nl">
+              <li>astma</li>
+              <li>hyperventilatie</li>
+              <li>ademhalingsklachten na Long COVID</li>
+              <li>stressgerelateerde ademhalingsproblemen</li>
+              <li>slecht herstel</li>
+              <li>beperkte ademcapaciteit tijdens sport</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <h3>
+              <span class="lang-en">Functional Training</span>
+              <span class="lang-nl">Functionele Training</span>
+            </h3>
+
+            <p class="lang-en">
+              Functional training focuses on building a body that is strong,
+              mobile and capable of handling real physical demands.
+            </p>
+            <p class="lang-nl">
+              Functionele training richt zich op het ontwikkelen van een lichaam
+              dat sterk, mobiel en belastbaar is.
+            </p>
+
+            <p class="lang-en">
+              Instead of isolating muscles, it develops movement patterns that
+              improve coordination, stability and resilience.
+            </p>
+            <p class="lang-nl">
+              In plaats van losse spieren te trainen, ligt de focus op
+              bewegingspatronen die coördinatie, stabiliteit en belastbaarheid
+              verbeteren.
+            </p>
+
+            <ul class="lang-en">
+              <li>strength and stability exercises</li>
+              <li>mobility training</li>
+              <li>core development</li>
+              <li>movement technique</li>
+            </ul>
+
+            <ul class="lang-nl">
+              <li>kracht- en stabiliteitsoefeningen</li>
+              <li>mobiliteitstraining</li>
+              <li>core ontwikkeling</li>
+              <li>techniek van beweging</li>
+            </ul>
+          </article>
+
+          <article class="service-card endurance-card">
+            <div class="service-image">
+              <img src="assets/images/endurance-triathlon.jpg" alt="Triathlon finish celebration" loading="lazy" decoding="async" />
+            </div>
+            <div class="service-copy">
+              <h3>
+                <span class="lang-en">Endurance Coaching</span>
+                <span class="lang-nl">Endurance Coaching</span>
+              </h3>
+
+              <p class="lang-en">
+                Endurance training is about developing the physical and mental
+                capacity to sustain effort over longer periods of time.
+              </p>
+              <p class="lang-nl">
+                Duurtraining richt zich op het ontwikkelen van de fysieke en
+                mentale capaciteit om langdurige inspanning vol te houden.
+              </p>
+
+              <p class="lang-en">
+                Whether someone wants to run their first 10K, complete a
+                marathon or prepare for a triathlon, structured training makes
+                a significant difference.
+              </p>
+              <p class="lang-nl">
+                Of iemand nu zijn eerste 10 kilometer wil lopen, een marathon
+                wil voorbereiden of een triatlon wil volbrengen, een
+                gestructureerde trainingsaanpak maakt een groot verschil.
+              </p>
+
+              <ul class="lang-en">
+                <li>running or trail running</li>
+                <li>triathlon preparation</li>
+                <li>endurance development</li>
+                <li>breathing integration in endurance sports</li>
+              </ul>
+
+              <ul class="lang-nl">
+                <li>hardlopen of trailrunning</li>
+                <li>triatlonvoorbereiding</li>
+                <li>opbouw van uithoudingsvermogen</li>
+                <li>integratie van ademhaling binnen duursport</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="assets/images/about-mountains.jpg" alt="Blijleven Coaching in the mountains" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="about-copy">
+          <p class="section-kicker lang-en">About Blijleven Coaching</p>
+          <p class="section-kicker lang-nl">Over Blijleven Coaching</p>
+
+          <h2 class="lang-en">A story shaped by movement, nature and challenge.</h2>
+          <h2 class="lang-nl">Een verhaal gevormd door beweging, natuur en uitdaging.</h2>
+
+          <p class="lang-en">
+            My surname is Blijleven, which loosely translates to "happy life".
+            For me this represents more than just a name: it reflects a
+            philosophy of living fully, with health, challenge and purpose.
+          </p>
+          <p class="lang-nl">
+            Mijn achternaam is Blijleven. Voor mij is dat meer dan alleen een
+            naam: het weerspiegelt een manier van leven waarin gezondheid,
+            uitdaging en betekenis centraal staan.
+          </p>
+
+          <p class="lang-en">
+            Movement and nature have always been an important part of my life.
+            Yet my first study took me in a completely different direction: the
+            built environment.
+          </p>
+          <p class="lang-nl">
+            Beweging en natuur zijn altijd een belangrijk onderdeel van mijn
+            leven geweest. Toch begon mijn eerste studie in een totaal andere
+            richting: Bouwkunde.
+          </p>
+
+          <p class="lang-en">
+            During my studies I learned about innovative and environmentally
+            conscious ways of building. Unfortunately it became clear that these
+            ideas only in rare occasions stood a chance against the financial
+            interests that dominate the sector. Together with my inability to
+            sit behind a desk from 9 till 5, I chose to quit this study and try
+            out another path.
+          </p>
+          <p class="lang-nl">
+            Tijdens mijn studie leerde ik over duurzamere en innovatieve
+            manieren van bouwen, helaas zag ik ook hoe moeilijk het is om zulke
+            ideeën echt een plek te geven binnen een industrie waar financiële
+            belangen vaak de doorslag geven. Samen met mijn onvermogen om stil
+            te zitten van 9 tot 5, koos ik er voor om te stoppen met deze
+            studie en een ander pad in te slaan.
+          </p>
+
+          <p class="lang-en">
+            Leaving that path was not easy, but it opened the door to a period
+            of exploration. In those years I challenged myself physically and
+            mentally. I completed a marathon and a half triathlon and travelled
+            through Europe, exploring Italy, Croatia, Hungary, Germany and
+            Spain.
+          </p>
+          <p class="lang-nl">
+            Het besluit om een andere weg in te slaan was spannend, maar
+            achteraf gezien enorm waardevol. In die periode heb ik mezelf
+            fysiek en mentaal uitgedaagd. Ik liep een marathon en een halve
+            triatlon en reisde een maand door Europa, onder andere door Italië,
+            Kroatië, Hongarije, Duitsland en Spanje.
+          </p>
+
+          <p class="lang-en">
+            I decided to study Sport and Movement, where I gained practical
+            experience through internships at a CrossFit gym and a boutique
+            fitness studio. Later I started working at Sport-Natural in
+            Amsterdam, a gym whose philosophy strongly resonates with my own
+            view on training and health.
+          </p>
+          <p class="lang-nl">
+            Daarom besloot ik Sport & Bewegen te gaan studeren. Tijdens deze
+            studie liep ik stage bij een CrossFit gym en een boutique gym.
+            Later ging ik werken bij Sport-Natural in Amsterdam, een plek die
+            sterk aansluit bij mijn visie op training en gezondheid.
+          </p>
+
+          <p class="lang-en">
+            Alongside this I deepened my understanding of breathing and
+            completed my certification as a breath coach through the B-Mind
+            method. With Blijleven Coaching I combine breath, movement and
+            mindset to help people improve their health, push their limits and
+            live more fully.
+          </p>
+          <p class="lang-nl">
+            Daarnaast heb ik mij verdiept in ademhaling en heb ik mij laten
+            opleiden tot ademcoach volgens de B-Mind methode. Met Blijleven
+            Coaching combineer ik adem, beweging en mindset om mensen te helpen
+            hun gezondheid te verbeteren, hun grenzen te verleggen en
+            uiteindelijk voller te leven.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy" class="section philosophy-section">
+      <div class="container narrow">
+        <p class="section-kicker lang-en">Philosophy / Questions</p>
+        <p class="section-kicker lang-nl">Filosofie / Vragen</p>
+
+        <h2 class="lang-en">A deeper look into the ideas behind Blijleven Coaching.</h2>
+        <h2 class="lang-nl">Een diepere blik op de ideeën achter Blijleven Coaching.</h2>
+
+        <div class="faq-list">
+          <details>
+            <summary>
+              <span class="lang-en">Why are breath and movement important today?</span>
+              <span class="lang-nl">Waarom zijn ademhaling en beweging vandaag belangrijk?</span>
+            </summary>
+            <div class="faq-content">
+              <p class="lang-en">
+                In a world where words like stress and overworked are often more
+                familiar than relaxed and fulfilled, breath and movement take on
+                an important role. Work, bills, family life and daily
+                responsibilities will always bring pressure. Some periods more
+                than others. The question is whether we let those circumstances
+                completely dictate how we feel and live. Breath and movement
+                offer a powerful counterbalance. They reconnect us with our
+                body, calm the nervous system and give us a way to respond
+                differently to the constant pressure of modern life.
+              </p>
+              <p class="lang-nl">
+                In een wereld waarin woorden als stress en overwerkt voor veel
+                mensen bekender zijn dan ontspannen en vervuld, krijgen
+                ademhaling en beweging een belangrijke rol. Werk, rekeningen,
+                gezinsleven en dagelijkse verantwoordelijkheden zullen altijd
+                druk met zich meebrengen. Sommige periodes meer dan andere. De
+                vraag is of we die omstandigheden volledig laten bepalen hoe we
+                ons voelen en leven. Ademhaling en beweging bieden een krachtig
+                tegenwicht. Ze brengen ons terug naar het lichaam, kalmeren het
+                zenuwstelsel en geven ons een andere manier om om te gaan met
+                de constante druk van het moderne leven.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="lang-en">Why should people challenge their limits?</span>
+              <span class="lang-nl">Waarom zouden mensen hun grenzen moeten uitdagen?</span>
+            </summary>
+            <div class="faq-content">
+              <p class="lang-en">
+                Challenging physical limits develops mental toughness and
+                resilience. We live in a world that is becoming increasingly
+                comfortable, while many people still feel restless, flat or
+                disconnected. Many of the hardships that were once part of daily
+                life have disappeared. Yet our brains are still wired much like
+                they were thousands of years ago, when survival depended on
+                movement, endurance and perseverance. That is why real
+                challenge can make people feel more alive. For one person that
+                challenge may be a first 10K, for another a marathon, a
+                triathlon or an adventure in the mountains. A Greek term that
+                beautifully captures this idea is eudaimonia, often translated
+                as human flourishing: living well by developing one's potential
+                and embracing meaningful challenges.
+              </p>
+              <p class="lang-nl">
+                Het uitdagen van fysieke grenzen ontwikkelt mentale
+                weerbaarheid en veerkracht. We leven in een wereld die steeds
+                comfortabeler wordt, terwijl veel mensen zich nog steeds
+                rusteloos, vlak of losgekoppeld voelen. Veel ontberingen die
+                vroeger bij het dagelijks leven hoorden, zijn verdwenen. Toch
+                zijn onze hersenen nog grotendeels hetzelfde bedraad als
+                duizenden jaren geleden, toen overleven afhing van beweging,
+                uithoudingsvermogen en doorzettingsvermogen. Juist daarom kan
+                echte uitdaging mensen zich levender laten voelen. Voor de één
+                is dat een eerste 10 kilometer, voor een ander een marathon,
+                een triatlon of een avontuur in de bergen. Een Griekse term die
+                dit mooi vangt is eudaimonia, vaak vertaald als menselijk
+                floreren: goed leven door je potentieel te ontwikkelen en
+                betekenisvolle uitdagingen aan te gaan.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="lang-en">What role does nature play in your philosophy?</span>
+              <span class="lang-nl">Welke rol speelt natuur in jouw filosofie?</span>
+            </summary>
+            <div class="faq-content">
+              <p class="lang-en">
+                I grew up on a peninsula called Marken, near Amsterdam. For me
+                this place formed a perfect bridge between nature and modern
+                civilisation. Life on Marken was simple and relaxed. During my
+                youth I spent countless hours building huts, walking along the
+                dikes and reconnecting with the outdoors. Even today I often
+                return to these places to reconnect with those sensations and
+                with nature itself. Although Marken is small, it left a deep
+                impression on me. It shaped my desire to seek fulfillment
+                through movement in nature.
+              </p>
+              <p class="lang-nl">
+                Ik groeide op op een schiereiland genaamd Marken, vlak bij
+                Amsterdam. Voor mij vormde die plek een perfecte brug tussen
+                natuur en moderne beschaving. Het leven op Marken was eenvoudig
+                en relaxed. Tijdens mijn jeugd bracht ik ontelbare uren door
+                met hutten bouwen, langs de dijken lopen en opnieuw verbinding
+                maken met buiten zijn. Zelfs nu ga ik vaak terug naar deze
+                plekken om opnieuw contact te maken met die sensaties en met de
+                natuur zelf. Hoewel Marken klein is, heeft het een diepe indruk
+                op mij achtergelaten. Het voedde mijn verlangen om vervulling
+                te zoeken door te bewegen in de natuur.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="lang-en">What does Blijleven mean to you?</span>
+              <span class="lang-nl">Wat betekent Blijleven voor jou?</span>
+            </summary>
+            <div class="faq-content">
+              <p class="lang-en">
+                My surname is Blijleven, which loosely translates to happy life.
+                To me, living a happy life means living outside the comfort
+                zone. It means searching for limits, exploring new ideas and
+                reconnecting with nature, emotions and other people. Ultimately
+                it means being able to say: I have lived my life to the fullest.
+              </p>
+              <p class="lang-nl">
+                Mijn achternaam is Blijleven. Voor mij betekent een gelukkig
+                leven buiten de comfortzone leven. Het betekent grenzen
+                opzoeken, nieuwe ideeën verkennen en opnieuw verbinding maken
+                met natuur, emoties en andere mensen. Uiteindelijk betekent het
+                kunnen zeggen: ik heb mijn leven ten volle geleefd.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="lang-en">Who do you enjoy coaching?</span>
+              <span class="lang-nl">Wie coach je graag?</span>
+            </summary>
+            <div class="faq-content">
+              <p class="lang-en">
+                It is not about fitting into one specific category. What matters
+                most is mindset. I enjoy working with people who are open to
+                learning, willing to challenge themselves and curious enough to
+                explore a different path. You do not need to be the strongest,
+                fastest or most experienced person in the room. What matters is
+                that you are prepared to grow. Blijleven Coaching is for people
+                who are curious enough to think differently, brave enough to act
+                differently and motivated enough to discover what they are truly
+                capable of.
+              </p>
+              <p class="lang-nl">
+                Het gaat niet om in één specifieke categorie te passen. Wat
+                vooral telt is mindset. Ik werk graag met mensen die openstaan
+                om te leren, zichzelf willen uitdagen en nieuwsgierig genoeg
+                zijn om een ander pad te verkennen. Je hoeft niet de sterkste,
+                snelste of meest ervaren persoon in de ruimte te zijn. Wat telt
+                is dat je bereid bent om te groeien. Blijleven Coaching is er
+                voor mensen die nieuwsgierig genoeg zijn om anders te denken,
+                moedig genoeg zijn om anders te handelen en gemotiveerd genoeg
+                zijn om te ontdekken waartoe ze werkelijk in staat zijn.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" class="section light">
+      <div class="container narrow">
+        <p class="section-kicker lang-en">Coaching Locations</p>
+        <p class="section-kicker lang-nl">Trainingslocaties</p>
+
+        <h2 class="lang-en">Location to be determined</h2>
+        <h2 class="lang-nl">Locatie nader te bepalen</h2>
+
+        <p class="lang-en">
+          Outdoor training, breath coaching and endurance sessions are organised
+          in natural environments whenever possible. Additional locations may be
+          added in the future.
+        </p>
+        <p class="lang-nl">
+          Outdoor training, ademcoaching en duursporttraining worden waar
+          mogelijk in de natuur georganiseerd. In de toekomst kunnen hier extra
+          locaties aan toegevoegd worden.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section intake-section">
+      <div class="container intake-grid">
+        <div class="intake-copy">
+          <p class="section-kicker lang-en">Free Intake</p>
+          <p class="section-kicker lang-nl">Gratis Intake</p>
+
+          <h2 class="lang-en">Start with a free intake conversation.</h2>
+          <h2 class="lang-nl">Start met een gratis intakegesprek.</h2>
+
+          <p class="lang-en">
+            If you are curious about breath coaching, endurance training or
+            functional movement, the first step is a free intake conversation.
+            During this conversation we explore your goals, your current
+            situation and whether the coaching approach fits you.
+          </p>
+          <p class="lang-nl">
+            Ben je benieuwd naar ademcoaching, duursporttraining of
+            functionele training? De eerste stap is een gratis intakegesprek.
+            Tijdens dit gesprek kijken we naar jouw doelen, je huidige situatie
+            en of de coaching goed bij je past.
+          </p>
+
+          <div class="privacy-card">
+            <h3 class="lang-en">Private and low-pressure</h3>
+            <h3 class="lang-nl">Vertrouwd en laagdrempelig</h3>
+
+            <p class="lang-en">
+              This first form is only used to contact you about your intake request.
+              Share only the basics you feel comfortable sharing.
+            </p>
+            <p class="lang-nl">
+              Dit eerste formulier gebruiken we alleen om contact met je op te nemen
+              over je intakeaanvraag. Deel alleen de basis die voor jou goed voelt.
+            </p>
+
+            <p class="lang-en">
+              Prefer direct contact for a sensitive question?
+              <a href="mailto:blijlevencoaching@outlook.com">blijlevencoaching@outlook.com</a>
+            </p>
+            <p class="lang-nl">
+              Liever direct contact bij een gevoelige vraag?
+              <a href="mailto:blijlevencoaching@outlook.com">blijlevencoaching@outlook.com</a>
+            </p>
+          </div>
+        </div>
+
+        <form class="intake-form" name="free-intake" method="POST" action="/api/intake" data-ajax-form data-success-redirect="/thanks.html">
+          <p class="honeypot-field">
+            <label>Leave this field empty if you are human <input name="bot-field" autocomplete="off" /></label>
+          </p>
+
+          <label>
+            <span class="lang-en">Name</span>
+            <span class="lang-nl">Naam</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+
+          <label>
+            <span class="lang-en">Email</span>
+            <span class="lang-nl">E-mail</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+
+          <label>
+            <span class="lang-en">Phone number (optional)</span>
+            <span class="lang-nl">Telefoonnummer (optioneel)</span>
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+
+          <fieldset>
+            <legend>
+              <span class="lang-en">What would you like help with?</span>
+              <span class="lang-nl">Waar zou je hulp bij willen?</span>
+            </legend>
+
+            <label class="check"><input type="checkbox" name="help" value="Improve breathing" />
+              <span class="lang-en">Improve breathing</span>
+              <span class="lang-nl">Ademhaling verbeteren</span>
+            </label>
+
+            <label class="check"><input type="checkbox" name="help" value="Breathing or recovery complaints" />
+              <span class="lang-en">Breathing or recovery complaints</span>
+              <span class="lang-nl">Ademhalings- of herstelklachten</span>
+            </label>
+
+            <label class="check"><input type="checkbox" name="help" value="Improve endurance" />
+              <span class="lang-en">Improve endurance</span>
+              <span class="lang-nl">Uithoudingsvermogen verbeteren</span>
+            </label>
+
+            <label class="check"><input type="checkbox" name="help" value="Train for an event" />
+              <span class="lang-en">Train for an event (running / marathon / triathlon)</span>
+              <span class="lang-nl">Trainen voor een event (hardlopen / marathon / triatlon)</span>
+            </label>
+
+            <label class="check"><input type="checkbox" name="help" value="Improve general fitness" />
+              <span class="lang-en">Improve general fitness</span>
+              <span class="lang-nl">Algemene fitheid verbeteren</span>
+            </label>
+
+            <label class="check"><input type="checkbox" name="help" value="Explore physical potential" />
+              <span class="lang-en">Explore my physical potential</span>
+              <span class="lang-nl">Mijn fysieke potentieel verkennen</span>
+            </label>
+          </fieldset>
+
+          <p class="form-note">
+            <span class="lang-en">Please do not share detailed medical information in this first form.</span>
+            <span class="lang-nl">Deel in dit eerste formulier liever geen uitgebreide medische informatie.</span>
+          </p>
+
+          <label>
+            <span class="lang-en">Short message (optional)</span>
+            <span class="lang-nl">Kort bericht (optioneel)</span>
+            <textarea name="message" rows="4"></textarea>
+          </label>
+
+          <label class="check form-consent">
+            <input type="checkbox" name="privacy-consent" value="agreed" required />
+            <span class="lang-en">I agree that Blijleven Coaching may use my details to contact me about this intake request.</span>
+            <span class="lang-nl">Ik ga ermee akkoord dat Blijleven Coaching mijn gegevens gebruikt om contact met mij op te nemen over deze intakeaanvraag.</span>
+          </label>
+
+          <p class="form-note">
+            <span class="lang-en">You will receive a personal reply by email after your request has been reviewed.</span>
+            <span class="lang-nl">Na het bekijken van je aanvraag ontvang je persoonlijk antwoord per e-mail.</span>
+          </p>
+
+          <button type="submit" class="cta-button full">
+            <span class="lang-en">Request Free Intake</span>
+            <span class="lang-nl">Vraag gratis intake aan</span>
+          </button>
+
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-pattern"></div>
+    <div class="container footer-grid">
+      <div>
+        <h3>Blijleven Coaching</h3>
+        <p><a href="mailto:blijlevencoaching@outlook.com">blijlevencoaching@outlook.com</a></p>
+        <p>Breath · Movement · Endurance</p>
+      </div>
+
+      <div>
+        <h4>
+          <span class="lang-en">Explore</span>
+          <span class="lang-nl">Ontdek</span>
+        </h4>
+        <ul class="footer-links">
+          <li><a href="#about"><span class="lang-en">About</span><span class="lang-nl">Over</span></a></li>
+          <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-nl">Contact</span></a></li>
+          <li><a href="#services"><span class="lang-en">Services</span><span class="lang-nl">Diensten</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>
+          <span class="lang-en">Follow us</span>
+          <span class="lang-nl">Volg ons</span>
+        </h4>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/blijlevencoaching/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@blijlevencoaching" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Newsletter</h4>
+        <form class="newsletter" name="newsletter" method="POST" action="/api/newsletter" data-ajax-form>
+          <p class="honeypot-field">
+            <label>Leave this field empty if you are human <input name="company" autocomplete="off" /></label>
+          </p>
+          <input type="email" name="newsletter-email" placeholder="Email address" autocomplete="email" required />
+          <button type="submit" class="ghost-button dark">
+            <span class="lang-en">Sign Up</span>
+            <span class="lang-nl">Aanmelden</span>
+          </button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+(() => {
+  const toggle = document.querySelector('.lang-toggle');
+  const body = document.body;
+  const forms = document.querySelectorAll('[data-ajax-form]');
+
+  function setLanguage(lang) {
+    body.classList.remove('lang-en', 'lang-nl');
+    body.classList.add(lang === 'nl' ? 'lang-nl' : 'lang-en');
+    document.documentElement.lang = lang === 'nl' ? 'nl' : 'en';
+    try { localStorage.setItem('blijleven-lang', lang); } catch(e) {}
+  }
+
+  function isDutch() {
+    return body.classList.contains('lang-nl');
+  }
+
+  function t(english, dutch) {
+    return isDutch() ? dutch : english;
+  }
+
+  function showStatus(node, type, message) {
+    if (!node) return;
+    node.textContent = message;
+    node.classList.remove('success', 'error');
+    node.classList.add('is-visible', type);
+  }
+
+  function clearStatus(node) {
+    if (!node) return;
+    node.textContent = '';
+    node.classList.remove('is-visible', 'success', 'error');
+  }
+
+  async function handleFormSubmit(event) {
+    const form = event.currentTarget;
+    const status = form.querySelector('[data-form-status]');
+    const button = form.querySelector('button[type="submit"]');
+
+    if (!window.fetch || !window.FormData) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    clearStatus(status);
+    if (button) button.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method || 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok || !payload.ok) {
+        throw new Error(
+          payload.message ||
+          t(
+            'Something went wrong. Please try again or email us directly.',
+            'Er ging iets mis. Probeer het opnieuw of mail ons direct.'
+          )
+        );
+      }
+
+      form.reset();
+
+      const redirectTo = payload.redirectTo || form.dataset.successRedirect;
+
+      if (redirectTo) {
+        window.location.assign(redirectTo);
+        return;
+      }
+
+      showStatus(
+        status,
+        'success',
+        payload.message ||
+        t(
+          'Thanks, your message has been sent.',
+          'Bedankt, je bericht is verzonden.'
+        )
+      );
+    } catch (error) {
+      showStatus(
+        status,
+        'error',
+        error && error.message
+          ? error.message
+          : t(
+              'Something went wrong. Please try again later.',
+              'Er ging iets mis. Probeer het later opnieuw.'
+            )
+      );
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
+  let saved = 'en';
+  try { saved = localStorage.getItem('blijleven-lang') || 'en'; } catch(e) {}
+  setLanguage(saved);
+
+  toggle?.addEventListener('click', () => {
+    const next = body.classList.contains('lang-nl') ? 'en' : 'nl';
+    setLanguage(next);
+  });
+
+  forms.forEach((form) => {
+    form.addEventListener('submit', handleFormSubmit);
+  });
+})();
+
+</script>
+</body>
+</html>
